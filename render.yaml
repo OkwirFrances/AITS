@@ -16,8 +16,8 @@ services:
       cp frontend/dist/index.html backend/templates/
       
       # Phase 4: Database and static files
-      cd backend && python manage.py migrate
-      cd backend && python manage.py collectstatic --noinput
+      python manage.py migrate
+      python manage.py collectstatic --noinput
     startCommand: gunicorn backend.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
