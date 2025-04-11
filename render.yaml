@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: django-backend
+    runtime: python
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+      python manage.py migrate
+      python manage.py collectstatic --noinput  # Correct placement of --noinput
+    startCommand: gunicorn  backend.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: AITS  # Must match your PostgreSQL service name in Render
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+
+  - type: static
+    name: react-frontend
+    buildCommand: |
+      npm install
+      npm run build
+    publishPath: ./build  # Or ./dist if using Vite
