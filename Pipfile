@@ -10,6 +10,8 @@ djangorestframework-simplejwt = "*"
 djangorestframework = "*"
 django-otp = "*"
 pillow = "*"
+dj-database-url = "*"
+django-environ = "*"
 
 [dev-packages]
 
