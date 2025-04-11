@@ -3,24 +3,30 @@ services:
     name: django-backend
     runtime: python
     buildCommand: |
+      # Python setup
       python -m pip install --upgrade pip
       pip install -r requirements.txt
+      
+      # Build React (Vite) and integrate with Django
+      cd frontend && npm install && npm run build && cd ..
+      mkdir -p backend/static backend/templates
+      cp -r frontend/dist/* backend/static/
+      cp frontend/dist/index.html backend/templates/
+      
+      # Django setup
       python manage.py migrate
-      python manage.py collectstatic --noinput  # Correct placement of --noinput
-    startCommand: gunicorn  backend.wsgi:application --bind 0.0.0.0:$PORT
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn backend.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: AITS  # Must match your PostgreSQL service name in Render
+          name: AITS  # Your PostgreSQL service name
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
         value: "False"
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://groupaaits-isnj.onrender.com"  # Your frontend URL
 
-  - type: static
-    name: react-frontend
-    buildCommand: |
-      npm install
-      npm run build
-    publishPath: ./build  # Or ./dist if using Vite
+  # Remove the static service since we're serving React through Django

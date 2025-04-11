@@ -24,4 +24,9 @@ export default defineConfig({
         '.js': 'jsx',
       },
     },
+    base: '/static/',  // Critical for Django static files
+    build: {
+    outDir: '../backend/static',
+    emptyOutDir: true,
+  }
 })
