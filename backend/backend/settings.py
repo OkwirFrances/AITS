@@ -80,7 +80,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'backend/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -200,3 +200,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 print("DATABASE_URL:", env('DATABASE_URL', default=None))
+
+# settings.py
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'backend/static'),
+]
+
