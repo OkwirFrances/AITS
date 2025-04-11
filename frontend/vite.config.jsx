@@ -25,13 +25,13 @@ export default defineConfig({
       },
     },
     base: '/static/',
-     build: {
-    outDir: '../frontend/dist',
+    build: {
+    outDir: '../backend/static',
     assetsDir: 'assets',
     emptyOutDir: true,
     rollupOptions: {
-      output: {
-        assetFileNames: 'assets/[name][extname]'
+      input: {
+        main: 'src/main.jsx'
       }
     }
   }
