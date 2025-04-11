@@ -1,0 +1,133 @@
+/* Modern sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 70px);
+    background: #14a707;
+    color: rgb(255, 255, 255);
+    padding: 20px 0;
+    /* box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); */
+    display: flex;
+    flex-direction: column;
+    z-index: 900;
+    transition: all 0.3s ease;
+    border-right: 1px solid #e9ecef;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar-item {
+    position: relative;
+    margin: 5px 15px;
+    border-radius: 8px;
+    /* transition: all 0.3s ease; */
+}
+
+.sidebar-item a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar-item:hover a{
+    background: #e9ecef63;
+    color: rgb(29, 24, 24);
+}
+
+/* .sidebar-item.active {
+    background: #e3f2fd;
+} */
+
+.sidebar-item.active a {
+    color: #f3ef09;
+}
+
+/* .sidebar-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #1976d2;
+    border-radius: 0 4px 4px 0;
+} */
+
+.sidebar-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    opacity: 0.8;
+}
+
+.sidebar-item.active .sidebar-icon {
+    opacity: 1;
+}
+
+/* Logout button styling */
+.logout-button {
+    background: none;
+    border: none;
+    color: rgb(247, 242, 242);
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    width: 100%;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    /* transition: all 0.3s ease; */
+}
+
+.logout-button:hover {
+    color: #141414;
+    background: #fce4ec41;
+}
+
+/* Collapsed state */
+.sidebar-collapsed {
+    width: 80px;
+}
+
+.sidebar-collapsed .sidebar-item span {
+    display: none;
+}
+
+.sidebar-collapsed .sidebar-item {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.sidebar-collapsed .sidebar-item a {
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.sidebar-collapsed .sidebar-icon {
+    margin-right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar-visible {
+        transform: translateX(0);
+    }
+}

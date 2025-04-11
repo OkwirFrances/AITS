@@ -1,0 +1,58 @@
+.congratulations-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+    text-align: center;
+    background-color: orange;
+}
+
+.congratulations-logo {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.congratulations-container h1 {
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.congratulations-container p {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.congratulations-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    width: 70%;
+    height: 65%;
+}
+
+.signin-button {
+    padding: 10px 20px;
+    background-color: rgb(181, 136, 53);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 330px;
+    transition: background-color 0.9s;
+}
+
+.signin-button:hover {
+    background-color: orange;
+}

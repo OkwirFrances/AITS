@@ -1,0 +1,149 @@
+/* Modern global app styles */
+:root {
+    --primary-color: #2e7d32;
+    --primary-light: #4caf50;
+    --primary-dark: #1b5e20;
+    --secondary-color: #1976d2;
+    --error-color: #d32f2f;
+    --warning-color: #ffa000;
+    --success-color: #388e3c;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --divider-color: #e0e0e0;
+    --background-default: #f5f5f5;
+    --background-paper: #ffffff;
+    --sidebar-width: 240px;
+    --navbar-height: 70px;
+    --transition-speed: 0.3s;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--background-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body.no-scroll {
+    overflow: hidden;
+  }
+  
+  /* Main app layout */
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    margin-left: var(--sidebar-width);
+    margin-top: var(--navbar-height);
+    padding: 20px;
+    flex: 1;
+    transition: margin-left var(--transition-speed) ease;
+    background-color: var(--background-default);
+    min-height: calc(100vh - var(--navbar-height));
+  }
+  
+  /* Responsive layout adjustments */
+  @media (max-width: 992px) {
+    .main-content {
+      margin-left: 0;
+      padding: 15px;
+    }
+    
+    .sidebar-collapsed + .main-content {
+      margin-left: 80px;
+    }
+  }
+  
+  /* Smooth transitions for route changes */
+  .route-transition {
+    position: relative;
+  }
+  
+  .route-transition > * {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background-default);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+  }
+  
+  /* Global form styles */
+  input, select, textarea, button {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  button {
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+  }
+  
+  /* Utility classes */
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .error-text {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+  
+  .success-text {
+    color: var(--success-color);
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+  
+  .loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
