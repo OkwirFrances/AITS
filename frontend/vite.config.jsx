@@ -24,9 +24,15 @@ export default defineConfig({
         '.js': 'jsx',
       },
     },
-    base: '/static/',  // Critical for Django static files
-    build: {
-    outDir: '../backend/static',
+    base: '/static/',
+     build: {
+    outDir: '../frontend/dist',
+    assetsDir: 'assets',
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name][extname]'
+      }
+    }
   }
 })
