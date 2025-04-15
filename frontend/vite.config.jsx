@@ -4,7 +4,7 @@ import viteTsconfigPaths from 'vite-tsconfig-paths'
 import path from 'path'
 
 export default defineConfig({
-    base: '',
+    base: '/',
     plugins: [react(), viteTsconfigPaths()],
     // resolve: {
     //     alias: {
