@@ -27,6 +27,7 @@ const DepartmentManagement = React.lazy(() => import('./pages/DepartmentManageme
 const CourseManagement = React.lazy(() => import('./pages/CourseManagement'));
 import LecturerManagement from './pages/LecturerManagement';
 const LecturerIssues = React.lazy(() => import('./pages/LecturerIssues'));
+const Profile = React.lazy(() => import('./pages/profile'));
 
 const App = () => {
   return (
@@ -96,6 +97,7 @@ const App = () => {
                 <Route path="support" element={<HelpSupport />} />
                 <Route path="settings" element={<Settings />} />
                 <Route path="lecturer" element={<LecturerManagement />} />
+                <Route path="profile" element={<Profile />} />
                 <Route path="departments" element={<DepartmentManagement />} />
                 <Route path="courses" element={<CourseManagement />} />
               </Route>
