@@ -1,4 +1,4 @@
-/* Modern global app styles */
+/* Modern global app styles
 :root {
     --primary-color: #2e7d32;
     --primary-light: #4caf50;
@@ -33,7 +33,6 @@
     background-color: var(--background-default);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 14px;
   }
   
   body.no-scroll {
@@ -147,4 +146,99 @@
   
   @keyframes spin {
     to { transform: rotate(360deg); }
+  } */
+
+  /* App-specific layout styles only */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--navbar-height);
+  padding: 1.5rem;
+  flex: 1;
+  transition: margin-left var(--transition-speed) ease;
+  background-color: var(--background-default);
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
   }
+  
+  .sidebar-collapsed + .main-content {
+    margin-left: 5rem;
+  }
+}
+
+/* Route transitions */
+.route-transition {
+  position: relative;
+}
+
+.route-transition > * {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+/* Form elements */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+/* Utility classes */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.error-text {
+  color: var(--error-color);
+  font-size: var(--font-size-sm);
+  margin-top: 0.3rem;
+}
+
+.success-text {
+  color: var(--success-color);
+  font-size: var(--font-size-sm);
+  margin-top: 0.3rem;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Special states */
+body.no-scroll {
+  overflow: hidden;
+}
