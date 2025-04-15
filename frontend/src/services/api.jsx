@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { getToken, clearToken, storeToken } from '../pages/Auth/auth';
 
-const API_BASE_URL = 'https://aits-api.onrender.com';
+const API_BASE_URL = 'https://aits-api.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
