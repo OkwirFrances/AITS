@@ -1,4 +1,5 @@
-/* Modern global app styles
+/* 
+
 :root {
     --primary-color: #2e7d32;
     --primary-light: #4caf50;
@@ -39,7 +40,7 @@
     overflow: hidden;
   }
   
-  /* Main app layout */
+
   .app-container {
     display: flex;
     min-height: 100vh;
@@ -56,7 +57,7 @@
     min-height: calc(100vh - var(--navbar-height));
   }
   
-  /* Responsive layout adjustments */
+
   @media (max-width: 992px) {
     .main-content {
       margin-left: 0;
@@ -67,8 +68,7 @@
       margin-left: 80px;
     }
   }
-  
-  /* Smooth transitions for route changes */
+
   .route-transition {
     position: relative;
   }
@@ -79,7 +79,7 @@
     right: 0;
   }
   
-  /* Scrollbar styling */
+  
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -98,7 +98,7 @@
     background: var(--primary-light);
   }
   
-  /* Global form styles */
+ 
   input, select, textarea, button {
     font-family: inherit;
     font-size: inherit;
@@ -109,7 +109,7 @@
     transition: all var(--transition-speed) ease;
   }
   
-  /* Utility classes */
+  
   .flex-center {
     display: flex;
     align-items: center;
@@ -148,7 +148,7 @@
     to { transform: rotate(360deg); }
   } */
 
-  /* App-specific layout styles only */
+/* App-specific layout styles only */
 .app-container {
   display: flex;
   min-height: 100vh;
@@ -241,4 +241,4 @@ button {
 /* Special states */
 body.no-scroll {
   overflow: hidden;
-}
+}  
